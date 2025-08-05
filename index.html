@@ -2,65 +2,40 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>مشغل فيديوهات MP4</title>
+  <title>مشغل الفيديوهات</title>
   <style>
-    body {
-      background-color: #111;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      text-align: center;
-    }
-    button {
-      padding: 10px 20px;
-      margin: 5px;
-      font-size: 16px;
-      border: none;
-      background-color: #444;
-      color: white;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-    button:hover {
-      background-color: #666;
-    }
-    iframe {
-      width: 100%;
-      height: 300px;
-      margin-top: 20px;
-      border: none;
-      display: none;
-    }
+    body { background: black; color: white; font-family: sans-serif; padding: 10px; }
+    button { padding: 10px; margin: 5px; font-size: 16px; }
+    video { width: 100%; max-height: 300px; margin-top: 20px; display: none; }
   </style>
 </head>
 <body>
 
-<h2>📺 اختر فيديو للتشغيل</h2>
-
+<h2>اختر فيديو</h2>
 <div id="buttons"></div>
 
-<iframe id="player" allowfullscreen></iframe>
+<video id="player" controls></video>
 
 <script>
-  // ضع هنا روابط الفيديوهات MP4
   const videos = [
     "https://files.catbox.moe/u1xbgo.mp4",
     "https://files.catbox.moe/u1xbgo.mp4",
-    "https://www.w3schools.com/html/mov_bbb.mp4"
-    // يمكنك إضافة المزيد حتى 2100
+    "https://example.com/video3.mp4"
+    // أكمل حتى 2100 رابط
   ];
 
-  const buttonsDiv = document.getElementById("buttons");
+  const container = document.getElementById("buttons");
   const player = document.getElementById("player");
 
   videos.forEach((link, index) => {
     const btn = document.createElement("button");
-    btn.innerText = "فيديو " + (index + 1);
+    btn.textContent = "فيديو " + (index + 1);
     btn.onclick = () => {
       player.src = link;
-      player.style.display = 'block';
+      player.style.display = "block";
+      player.play();
     };
-    buttonsDiv.appendChild(btn);
+    container.appendChild(btn);
   });
 </script>
 
