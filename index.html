@@ -2,55 +2,65 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>مشغل فيديوهات MP4 داخل IFRAME</title>
+  <title>مشغل فيديوهات MP4</title>
   <style>
     body {
-      background-color: #000;
-      color: white;
-      font-family: sans-serif;
-      padding: 10px;
+      background-color: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      text-align: center;
     }
     button {
-      padding: 10px;
+      padding: 10px 20px;
       margin: 5px;
       font-size: 16px;
+      border: none;
+      background-color: #444;
+      color: white;
       cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #666;
     }
     iframe {
       width: 100%;
       height: 300px;
-      border: none;
       margin-top: 20px;
+      border: none;
       display: none;
     }
   </style>
 </head>
 <body>
 
-<h2>اختر فيديو</h2>
+<h2>📺 اختر فيديو للتشغيل</h2>
+
 <div id="buttons"></div>
 
 <iframe id="player" allowfullscreen></iframe>
 
 <script>
+  // ضع هنا روابط الفيديوهات MP4
   const videos = [
-    "https://example.com/video1.mp4",
-    "https://example.com/video2.mp4",
-    "https://example.com/video3.mp4"
-    // أكمل باقي الروابط حتى 2100
+    "https://archive.org/download/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.mp4",
+    "https://archive.org/download/BigBuckBunny_328/BigBuckBunny_512kb.mp4",
+    "https://www.w3schools.com/html/mov_bbb.mp4"
+    // يمكنك إضافة المزيد حتى 2100
   ];
 
-  const container = document.getElementById("buttons");
+  const buttonsDiv = document.getElementById("buttons");
   const player = document.getElementById("player");
 
   videos.forEach((link, index) => {
     const btn = document.createElement("button");
-    btn.textContent = "فيديو " + (index + 1);
+    btn.innerText = "فيديو " + (index + 1);
     btn.onclick = () => {
       player.src = link;
-      player.style.display = "block";
+      player.style.display = 'block';
     };
-    container.appendChild(btn);
+    buttonsDiv.appendChild(btn);
   });
 </script>
 
